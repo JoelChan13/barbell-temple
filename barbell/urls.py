@@ -19,6 +19,6 @@ from django.urls import path, include
 from barbell_classes import views as barbellclasses_views
 
 urlpatterns = [
-    path("barbell_classes/", barbellclasses_views.my_barbellclasses, name='barbell_classes'),
     path('admin/', admin.site.urls),
+    path('', include('barbell_classes.urls')),
 ]

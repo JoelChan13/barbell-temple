@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>Barbell Temple- {{ title }}</title>
-    {% else %}
-        <title>Barbell Temple</title>
-    {% endif %}
-</head>
-<body>
+{% extends "barbell_classes/base.html" %}
+{% block content %}
     <h1>Barbell Timetable</h1>
-</body>
-</html>
+{% endblock content %}

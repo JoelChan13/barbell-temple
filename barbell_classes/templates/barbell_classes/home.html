@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Barbell Home</h1>
+    {% for barbellclass_update in barbellclass_updates %}
+        <h1>{{ barbellclass_update.title }}</h1>
+        <p>By {{ barbellclass_update.author }}</p>
+        <p>{{ barbellclass_update.content }}</p>
+    {% endfor %}
 </body>
 </html>

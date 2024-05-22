@@ -24,4 +24,4 @@ def home(request):
 
 
 def timetable(request):
-    return render(request, 'barbell_classes/timetable.html')
+    return render(request, 'barbell_classes/timetable.html', {'title': 'Timetable'})

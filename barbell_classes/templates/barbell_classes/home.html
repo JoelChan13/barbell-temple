@@ -1,8 +1,15 @@
 {% extends "barbell_classes/base.html" %}
 {% block content %}
     {% for barbellclass_update in barbellclass_updates %}
-        <h1>{{ barbellclass_update.title }}</h1>
-        <p>By {{ barbellclass_update.author }}</p>
-        <p>{{ barbellclass_update.content }}</p>
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ barbellclass_update.author }}</a>
+                <small class="text-muted">{{ barbellclass_update.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ barbellclass_update.title }}</a></h2>
+            <p class="article-content">{{ barbellclass_update.content }}</p>
+        </div>
+    </article>
     {% endfor %}
 {% endblock content %}

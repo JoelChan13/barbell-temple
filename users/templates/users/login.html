@@ -4,16 +4,16 @@
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group" <legend class="border-bottom mb-4">Join Us</legend>
+            <fieldset class="form-group" <legend class="border-bottom mb-4">Log In</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already A Barbell Templar? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                Become a Barbell Templar <a class="ml-2" href="{% url 'registration' %}">Join The Movement</a>
             </small>
         </div>
     </div>

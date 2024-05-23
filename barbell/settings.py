@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['8000-joelchan13-barbelltempl-2a6iqe2iaen.ws-eu114.gitpod.io','
 
 INSTALLED_APPS = [
     'barbell_classes.apps.BarbellClassesConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

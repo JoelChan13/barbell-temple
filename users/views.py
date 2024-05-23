@@ -7,6 +7,7 @@ def registration(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account Created for Templar {username}!')
             return redirect('barbell_classes-home')

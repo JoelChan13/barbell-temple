@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import BarbellClass
 from django.http import HttpResponse
 
 barbellclass_updates = [
@@ -18,7 +19,7 @@ barbellclass_updates = [
 
 def home(request):
     context = {
-        'barbellclass_updates': barbellclass_updates
+        'barbellclass_updates': BarbellClass.objects.all
     }
     return render(request, 'barbell_classes/home.html', context)
 

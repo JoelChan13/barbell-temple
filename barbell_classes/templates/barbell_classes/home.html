@@ -5,7 +5,7 @@
         <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2" href="#">{{ barbellclass_update.author }}</a>
-                <small class="text-muted">{{ barbellclass_update.date_posted }}</small>
+                <small class="text-muted">{{ barbellclass_update.date_posted|date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="#">{{ barbellclass_update.title }}</a></h2>
             <p class="article-content">{{ barbellclass_update.content }}</p>

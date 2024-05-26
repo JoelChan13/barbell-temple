@@ -1,6 +1,7 @@
 body {
-    background: #fafafa;
-    color: #333333;
+    background: gray;
+    color: gray;
+    background-color: darkgray;
     margin-top: 5rem;
   }
   
@@ -13,7 +14,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #425e71;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -29,13 +30,18 @@ body {
   }
   
   .content-section {
-    background: #ffffff;
+    background: #8faabd;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin-bottom: 20px;
   }
   
+  .list-group-item-light {
+    background-color: #425e71;
+    color: #ffffff;
+  }
+
   .article-title {
     color: #444444;
   }

@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView
+)
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import BarbellClass
 from django.http import HttpResponse
 
@@ -20,6 +26,24 @@ class BarbellClassListView(ListView):
 
 class BarbellClassDetailView(DetailView):
     model = BarbellClass
+
+
+class BarbellClassCreateView(LoginRequiredMixin, CreateView):
+    model = BarbellClass
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = BarbellClass
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 def timetable(request):

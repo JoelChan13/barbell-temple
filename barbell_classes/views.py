@@ -14,6 +14,7 @@ class BarbellClassListView(ListView):
     model = BarbellClass
     template_name = 'barbell_classes/home.html'
     context_object_name = 'barbellclass_updates'
+    ordering = ['-date_posted']
 
 def timetable(request):
     return render(request, 'barbell_classes/timetable.html', {'title': 'Timetable'})

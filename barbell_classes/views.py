@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import BarbellClass
 from django.http import HttpResponse
 
@@ -10,11 +10,17 @@ def home(request):
     }
     return render(request, 'barbell_classes/home.html', context)
 
+
 class BarbellClassListView(ListView):
     model = BarbellClass
     template_name = 'barbell_classes/home.html'
     context_object_name = 'barbellclass_updates'
     ordering = ['-date_posted']
+
+
+class BarbellClassDetailView(DetailView):
+    model = BarbellClass
+
 
 def timetable(request):
     return render(request, 'barbell_classes/timetable.html', {'title': 'Timetable'})

@@ -55,6 +55,7 @@ class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
 
 class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = BarbellClass
+    success_url = "/"
 
     def test_func(self):
         barbellclass = self.get_object()

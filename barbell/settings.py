@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*#of^w6nnm+fqi+rn$+ba-0*yspxk7pg=b5@+7jp5u13^gv*p1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-joelchan13-barbelltempl-2a6iqe2iaen.ws-eu114.gitpod.io','.herokuapp.com']
 
@@ -42,6 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+    'barbell_classes',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +150,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL = 'barbell_classes-home'
 LOGIN_URL = 'login'
+
+# Cloudinary Configuration
+CLOUDINARY = {
+    'cloud_name': 'dyvpfbw4j',
+    'api_key': '762527348325295',
+    'api_secret': '6Kr50jMsrmof_30uYAfDE3u0Ivg'
+}
+
+cloudinary.config(
+    cloud_name=CLOUDINARY['cloud_name'],
+    api_key=CLOUDINARY['api_key'],
+    api_secret=CLOUDINARY['api_secret']
+)

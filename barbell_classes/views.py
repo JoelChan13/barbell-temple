@@ -31,7 +31,7 @@ class BarbellClassDetailView(DetailView):
 
 class BarbellClassCreateView(LoginRequiredMixin, CreateView):
     model = BarbellClass
-    fields = ['title', 'content']
+    fields = ['title', 'date', 'duration', 'difficulty', 'description']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

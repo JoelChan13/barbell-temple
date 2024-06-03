@@ -1,4 +1,44 @@
 {% extends "barbell_classes/base.html" %}
 {% block content %}
     <h1>Barbell Timetable</h1>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch event data from server
+            function fetchEventData() {
+                // Make an AJAX request to fetch event data from your server
+                // Replace 'your_server_endpoint' with the actual URL to fetch event data
+                fetch('your_server_endpoint')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Once data is fetched, initialize FullCalendar with the fetched event data
+                        initializeCalendar(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching event data:', error);
+                    });
+            }
+    
+            // Function to initialize FullCalendar with event data
+            function initializeCalendar(events) {
+                const calendarEl = document.getElementById('calendar');
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    plugins: ['dayGrid'],
+                    events: events
+                });
+                calendar.render();
+            }
+    
+            // Call fetchEventData function after the submission of the barbellclasses_detail form
+            // You can trigger this function based on your application logic
+            // For example, after a successful form submission
+            // Replace 'your_form_element' with the actual form element or submit event
+            document.getElementById('your_form_element').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+                fetchEventData(); // Fetch event data after form submission
+            });
+        });
+    </script>
+    
 {% endblock content %}

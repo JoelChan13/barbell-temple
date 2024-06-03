@@ -13,4 +13,23 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            var form = document.getElementById("barbell-class-form");
+            var inputs = form.querySelectorAll("input, select, textarea");
+            var isValid = true;
+            
+            inputs.forEach(function(input) {
+                if (!input.value) {
+                    input.classList.add("is-invalid");
+                    isValid = false;
+                } else {
+                    input.classList.remove("is-invalid");
+                }
+            });
+            
+            return isValid;
+        }
+    </script>
 {% endblock content %}

@@ -11,6 +11,7 @@
                     <small class="text-muted">{{ object.date_posted|date:"F d, Y" }} by {{ object.author }}</small>
                 </div>
                 <ul class="list-unstyled">
+                    <li><strong>Date: </strong>{{ object.date|date:"F d, Y H:i" }}</li>
                     <li><strong>Duration: </strong>{{ object.duration }}</li>
                     <li><strong>Difficulty: </strong>{{ object.difficulty }}</li>
                     <li><strong>Description: </strong>{{ object.description }}</li>

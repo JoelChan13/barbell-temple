@@ -3,5 +3,23 @@
     "@fullcalendar/core": "^6.1.13",
     "@fullcalendar/daygrid": "^6.1.13",
     "fullcalendar": "^6.1.13"
-  }
+  },
+  "name": "barbell-temple",
+  "description": "![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelChan13/barbell-temple.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelChan13/barbell-temple/issues"
+  },
+  "homepage": "https://github.com/JoelChan13/barbell-temple#readme"
 }

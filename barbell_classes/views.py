@@ -8,6 +8,7 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import BarbellClass
+from django.http import JsonResponse
 from django.http import HttpResponse
 
 

@@ -10,7 +10,7 @@ class BarbellClass(models.Model):
     image = CloudinaryField('image', default='placeholder')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateTimeField(default='10-06-2024 00:00:00')
+    date = models.TextField(default='')
     duration = models.TextField(default='')
     difficulty = models.TextField(default='')
     description = models.TextField()

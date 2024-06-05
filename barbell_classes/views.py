@@ -67,3 +67,10 @@ class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
 
 def timetable(request):
     return render(request, 'barbell_classes/timetable.html', {'title': 'Timetable'})
+
+
+def my_barbellclasses(request):
+    context = {
+        'my_barbellclasses': BarbellClass.objects.filter(author=request.user)
+    }
+    return render(request, 'barbell_classes/my_barbellclasses.html', context)

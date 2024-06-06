@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import (
     ListView,
     DetailView,
@@ -14,7 +14,7 @@ from django.http import HttpResponse
 
 def home(request):
     context = {
-        'barbellclass_updates': BarbellClass.objects.all
+        'barbellclass_updates': BarbellClass.objects.all()
     }
     return render(request, 'barbell_classes/home.html', context)
 
@@ -30,13 +30,19 @@ class BarbellClassDetailView(DetailView):
     model = BarbellClass
 
 
-class BarbellClassCreateView(LoginRequiredMixin, CreateView):
+class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = BarbellClass
     fields = ['title', 'date', 'duration', 'difficulty', 'description']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        return self.request.user.is_staff or self.request.user.is_superuser
+
+    def handle_no_permission(self):
+        return redirect('barbell_classes-home')
 
 
 class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -49,9 +55,10 @@ class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
 
     def test_func(self):
         barbellclass = self.get_object()
-        if self.request.user == barbellclass.author:
-            return True
-        return False
+        return self.request.user == barbellclass.author
+
+    def handle_no_permission(self):
+        return redirect('barbell_classes-home')
 
 
 class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -60,9 +67,10 @@ class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
 
     def test_func(self):
         barbellclass = self.get_object()
-        if self.request.user == barbellclass.author:
-            return True
-        return False
+        return self.request.user == barbellclass.author
+
+    def handle_no_permission(self):
+        return redirect('barbell_classes-home')
 
 
 def timetable(request):

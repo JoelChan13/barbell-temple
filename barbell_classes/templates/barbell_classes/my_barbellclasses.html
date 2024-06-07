@@ -1,4 +1,22 @@
+<!-- my_barbellclasses.html -->
 {% extends "barbell_classes/base.html" %}
 {% block content %}
     <h1>My Barbell Classes</h1>
+    {% for enrollment in my_barbellclasses %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ enrollment.barbell_class.author.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ enrollment.barbell_class.author }}</a>
+                    <small class="text-muted">{{ enrollment.barbell_class.date_posted|date:"F d, Y" }}</small>
+                </div>
+                <h2><a class="article-title" href="{% url 'barbellclass-detail' enrollment.barbell_class.id %}">{{ enrollment.barbell_class.title }}</a></h2>
+                <p class="article-content">{{ enrollment.barbell_class.description }}</p>
+                <form method="post" action="{% url 'barbellclass-unenrol' enrollment.barbell_class.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Unenrol</button>
+                </form>
+            </div>
+        </article>
+    {% endfor %}
 {% endblock content %}

@@ -1,15 +1,10 @@
-from django.shortcuts import render, redirect
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView,
-    UpdateView,
-    DeleteView
-)
+# views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import BarbellClass
-from django.http import JsonResponse
-from django.http import HttpResponse
+from .models import BarbellClass, Enrollment
+from django.http import JsonResponse, HttpResponse
+from django.urls import reverse
 
 
 def home(request):
@@ -29,6 +24,16 @@ class BarbellClassListView(ListView):
 class BarbellClassDetailView(DetailView):
     model = BarbellClass
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['is_enrolled'] = Enrollment.objects.filter(
+                user=self.request.user,
+                barbell_class=self.object
+            ).exists()
+        else:
+            context['is_enrolled'] = False
+        return context
 
 class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = BarbellClass
@@ -73,12 +78,26 @@ class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
         return redirect('barbell_classes-home')
 
 
+class BarbellClassEnrol(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        barbellclass = get_object_or_404(BarbellClass, pk=pk)
+        Enrollment.objects.get_or_create(user=request.user, barbell_class=barbellclass)
+        return redirect('my_barbellclasses')
+
+
+class BarbellClassUnenrol(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        barbellclass = get_object_or_404(BarbellClass, pk=pk)
+        Enrollment.objects.filter(user=request.user, barbell_class=barbellclass).delete()
+        return redirect('my_barbellclasses')
+
+
 def timetable(request):
     return render(request, 'barbell_classes/timetable.html', {'title': 'Timetable'})
 
 
 def my_barbellclasses(request):
     context = {
-        'my_barbellclasses': BarbellClass.objects.filter(author=request.user)
+        'my_barbellclasses': Enrollment.objects.filter(user=request.user)
     }
     return render(request, 'barbell_classes/my_barbellclasses.html', context)

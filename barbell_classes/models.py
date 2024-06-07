@@ -5,14 +5,14 @@ from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 class BarbellClass(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, help_text="Enter the title of the barbell class (e.g., 'Beginner Strength Training')")
     image = CloudinaryField('image', default='placeholder')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.TextField(default='')
-    duration = models.TextField(default='')
-    difficulty = models.TextField(default='')
-    description = models.TextField()
+    date = models.TextField(default='', help_text="Enter the date and time of the class (e.g., '2024-06-15 10:00 AM')")
+    duration = models.TextField(default='', help_text="Enter the duration of the class (e.g., '1 hour')")
+    difficulty = models.TextField(default='', help_text="Enter the difficulty level of the class (e.g., 'Beginner', 'Intermediate', 'Advanced')")
+    description = models.TextField(help_text="Provide a detailed description of the class")
 
     def __str__(self):
         return self.title

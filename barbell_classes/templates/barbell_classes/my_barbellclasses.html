@@ -12,11 +12,16 @@
                 </div>
                 <h2><a class="article-title" href="{% url 'barbellclass-detail' enrollment.barbell_class.id %}">{{ enrollment.barbell_class.title }}</a></h2>
                 <p class="article-content">{{ enrollment.barbell_class.description }}</p>
-                <form method="post" action="{% url 'barbellclass-unenrol' enrollment.barbell_class.id %}">
+                <form method="post" action="{% url 'barbellclass-unenrol' enrollment.barbell_class.id %}" onsubmit="return confirmUnenrol()">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger btn-sm">Unenrol</button>
                 </form>
             </div>
         </article>
     {% endfor %}
+    <script>
+        function confirmUnenrol() {
+            return confirm("Are you sure you want to unenrol from this class?");
+        }
+    </script>
 {% endblock content %}

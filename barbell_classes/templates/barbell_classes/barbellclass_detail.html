@@ -26,12 +26,12 @@
                     <div class="mt-3">
                         {% if user.is_authenticated %}
                             {% if is_enrolled %}
-                                <form method="post" action="{% url 'barbellclass-unenrol' object.id %}">
+                                <form method="post" action="{% url 'barbellclass-unenrol' object.id %}" onsubmit="return confirmUnenrol()">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger btn-sm">Unenrol</button>
                                 </form>
                             {% else %}
-                                <form method="post" action="{% url 'barbellclass-enrol' object.id %}">
+                                <form method="post" action="{% url 'barbellclass-enrol' object.id %}" onsubmit="return confirmEnrol()">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-primary btn-sm">Enrol</button>
                                 </form>
@@ -44,4 +44,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function confirmEnrol() {
+            return confirm("Are you sure you want to enrol for this class?");
+        }
+        function confirmUnenrol() {
+            return confirm("Are you sure you want to unenrol from this class?");
+        }
+    </script>
 {% endblock content %}

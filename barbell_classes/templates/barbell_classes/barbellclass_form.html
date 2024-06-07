@@ -15,21 +15,29 @@
     </div>
 
     <script>
-        function validateForm() {
-            var form = document.getElementById("barbell-class-form");
-            var inputs = form.querySelectorAll("input, select, textarea");
-            var isValid = true;
-            
-            inputs.forEach(function(input) {
-                if (!input.value) {
+    function validateForm() {
+        var form = document.getElementById("barbell-class-form");
+        var inputs = form.querySelectorAll("input, select, textarea");
+        var isValid = true;
+        
+        inputs.forEach(function(input) {
+            if (input.type === "datetime-local") {
+                // Check if the datetime field is empty or not in the appropriate format
+                if (!input.value || isNaN(Date.parse(input.value))) {
                     input.classList.add("is-invalid");
                     isValid = false;
                 } else {
                     input.classList.remove("is-invalid");
                 }
-            });
-            
-            return isValid;
-        }
-    </script>
+            } else if (!input.value.trim()) { // Check if other fields are empty
+                input.classList.add("is-invalid");
+                isValid = false;
+            } else {
+                input.classList.remove("is-invalid");
+            }
+        });
+        
+        return isValid;
+    }
+</script>
 {% endblock content %}

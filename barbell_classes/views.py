@@ -37,7 +37,7 @@ class BarbellClassDetailView(DetailView):
 
 class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = BarbellClass
-    fields = ['title', 'date', 'duration', 'difficulty', 'description']
+    fields = ['title', 'date', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -52,7 +52,7 @@ class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
 
 class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = BarbellClass
-    fields = ['title', 'date', 'duration', 'difficulty', 'description']
+    fields = ['title', 'date', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -81,14 +81,21 @@ class BarbellClassDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
 class BarbellClassEnrol(LoginRequiredMixin, View):
     def post(self, request, pk):
         barbellclass = get_object_or_404(BarbellClass, pk=pk)
-        Enrollment.objects.get_or_create(user=request.user, barbell_class=barbellclass)
+        if barbellclass.available_spots > 0:
+            Enrollment.objects.get_or_create(user=request.user, barbell_class=barbellclass)
+            barbellclass.available_spots -= 1
+            barbellclass.save()
         return redirect('my_barbellclasses')
 
 
 class BarbellClassUnenrol(LoginRequiredMixin, View):
     def post(self, request, pk):
         barbellclass = get_object_or_404(BarbellClass, pk=pk)
-        Enrollment.objects.filter(user=request.user, barbell_class=barbellclass).delete()
+        enrollment = Enrollment.objects.filter(user=request.user, barbell_class=barbellclass)
+        if enrollment.exists():
+            enrollment.delete()
+            barbellclass.available_spots += 1
+            barbellclass.save()
         return redirect('my_barbellclasses')
 
 

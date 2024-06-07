@@ -1,3 +1,4 @@
+# models.py
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -9,10 +10,11 @@ class BarbellClass(models.Model):
     image = CloudinaryField('image', default='placeholder')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.TextField(default='', help_text="Enter the date and time of the class (e.g., '2024-06-15 10:00 AM')")
+    date = models.TextField(help_text="Enter the date and time of the class (e.g., '2024-06-15 10:00 AM')")
     duration = models.TextField(default='', help_text="Enter the duration of the class (e.g., '1 hour')")
     difficulty = models.TextField(default='', help_text="Enter the difficulty level of the class (e.g., 'Beginner', 'Intermediate', 'Advanced')")
     description = models.TextField(help_text="Provide a detailed description of the class")
+    available_spots = models.IntegerField(default=0, help_text="Number of available spots")
 
     def __str__(self):
         return self.title

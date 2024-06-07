@@ -37,7 +37,7 @@ class BarbellClassDetailView(DetailView):
 
 class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = BarbellClass
-    fields = ['title', 'date', 'duration', 'difficulty', 'description', 'available_spots']
+    fields = ['title', 'class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -52,7 +52,7 @@ class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
 
 class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = BarbellClass
-    fields = ['title', 'date', 'duration', 'difficulty', 'description', 'available_spots']
+    fields = ['title', 'class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.decorators.csrf import csrf_exempt
 from .models import BarbellClass, Enrollment
 from django.http import JsonResponse, HttpResponse
 from django.urls import reverse
@@ -108,3 +109,16 @@ def my_barbellclasses(request):
         'my_barbellclasses': Enrollment.objects.filter(user=request.user)
     }
     return render(request, 'barbell_classes/my_barbellclasses.html', context)
+
+
+@csrf_exempt
+def barbellclass_list_json(request):
+    classes = BarbellClass.objects.all()
+    events = []
+    for barbell_class in classes:
+        events.append({
+            'id': barbell_class.id,
+            'title': barbell_class.title,
+            'start': barbell_class.class_datetime.isoformat(),
+        })
+    return JsonResponse(events, safe=False)

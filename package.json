@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@fullcalendar/core": "^6.1.13",
-    "@fullcalendar/daygrid": "^6.1.13",
+    "@fullcalendar/core": "^6.1.14",
+    "@fullcalendar/daygrid": "^6.1.14",
     "fullcalendar": "^6.1.13"
   },
   "name": "barbell-temple",

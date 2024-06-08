@@ -14,12 +14,35 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                events: '/barbellclass/', // URL to fetch events
+                events: '/api/barbellclasses/',
                 eventClick: function(info) {
-                    window.location.href = '/barbellclass/' + info.event.id; // Redirect to event detail page
+                    window.location.href = '/barbellclass/' + info.event.id;
+                },
+                eventDidMount: function(info) {
+                    // Hide time
+                    var eventTime = info.el.querySelector('.fc-time');
+                    if (eventTime) {
+                        eventTime.style.display = 'none';
+                    }
+                },
+                eventContent: function(arg) {
+                    // Render event content
+                    var eventTitle = document.createElement('div');
+                    eventTitle.classList.add('event-title');
+                    eventTitle.textContent = arg.event.title;
+                    return { domNodes: [eventTitle] };
                 }
             });
             calendar.render();
         });
     </script>
+
+    <style>
+        .event-title {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 20px); /* Adjust as needed */
+        }
+    </style>
 {% endblock content %}

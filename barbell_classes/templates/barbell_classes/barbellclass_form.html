@@ -1,43 +1,53 @@
 {% extends "barbell_classes/base.html" %}
 {% load crispy_forms_tags %}
+
 {% block content %}
+    <!-- Content Section -->
     <div class="content-section">
-        <form method="POST">
+        <!-- Form for Barbell Class -->
+        <form method="POST" id="barbell-class-form" onsubmit="return validateForm()">
             {% csrf_token %}
+            <!-- Form Fieldset -->
             <fieldset class="form-group">
+                <!-- Form Legend -->
                 <legend class="border-bottom mb-4">Barbell Class</legend>
+                <!-- Render Form Using Crispy Forms -->
                 {{ form|crispy }}
             </fieldset>
+            <!-- Form Button -->
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Let's Go</button>
             </div>
         </form>
     </div>
 
+    <!-- JavaScript for Form Validation -->
     <script>
-    function validateForm() {
-        var form = document.getElementById("barbell-class-form");
-        var inputs = form.querySelectorAll("input, select, textarea");
-        var isValid = true;
-        
-        inputs.forEach(function(input) {
-            if (input.type === "datetime-local") {
-                // Check if the datetime field is empty or not in the appropriate format
-                if (!input.value || isNaN(Date.parse(input.value))) {
+        function validateForm() {
+            // Get the form and all its inputs
+            var form = document.getElementById("barbell-class-form");
+            var inputs = form.querySelectorAll("input, select, textarea");
+            var isValid = true;
+            
+            // Iterate over each input for validation
+            inputs.forEach(function(input) {
+                if (input.type === "datetime-local") {
+                    // Check if the datetime field is empty or not in the appropriate format
+                    if (!input.value || isNaN(Date.parse(input.value))) {
+                        input.classList.add("is-invalid");
+                        isValid = false;
+                    } else {
+                        input.classList.remove("is-invalid");
+                    }
+                } else if (!input.value.trim()) { // Check if other fields are empty
                     input.classList.add("is-invalid");
                     isValid = false;
                 } else {
                     input.classList.remove("is-invalid");
                 }
-            } else if (!input.value.trim()) { // Check if other fields are empty
-                input.classList.add("is-invalid");
-                isValid = false;
-            } else {
-                input.classList.remove("is-invalid");
-            }
-        });
-        
-        return isValid;
-    }
-</script>
+            });
+            
+            return isValid; // Return form validation result
+        }
+    </script>
 {% endblock content %}

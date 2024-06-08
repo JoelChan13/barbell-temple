@@ -1,23 +1,41 @@
 {% extends "barbell_classes/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
 <div class="content-section">
     <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> <!-- Display user profile image -->
         <div class="media-body">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
+            <h2 class="account-heading">{{ user.username }}</h2> <!-- Display username -->
+            <p class="text-secondary">{{ user.email }}</p> <!-- Display user email -->
         </div>
     </div>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group"> <legend class="border-bottom mb-4">Profile Info</legend>
+
+    <!-- Form for updating profile -->
+    <form id="updateForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} <!-- CSRF token for security -->
+
+        <!-- Form fieldset -->
+        <fieldset class="form-group"> 
+            <legend class="border-bottom mb-4">Profile Info</legend>
             {{ u_form|crispy }}
             {{ p_form|crispy }}
         </fieldset>
+
+        <!-- Update button -->
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
+            <button class="btn btn-outline-info" type="button" onclick="confirmUpdate()">Update</button>
         </div>
     </form>
 </div>
+
+<script>
+    // Function to confirm updates
+    function confirmUpdate() {
+        if (confirm("Are you sure you want to make these changes?")) {
+            document.getElementById("updateForm").submit();
+        }
+    }
+</script>
+
 {% endblock content %}

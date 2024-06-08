@@ -1,16 +1,23 @@
 {% extends "barbell_classes/base.html" %}
+
 {% block content %}
+    <!-- Loop through each barbell class update -->
     {% for barbellclass_update in barbellclass_updates %}
-    <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ barbellclass_update.author.profile.image.url }}">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{ barbellclass_update.author }}</a>
-                <small class="text-muted">{{ barbellclass_update.date_posted|date:"F d, Y" }}</small>
+        <!-- Article for a Barbell Class Update -->
+        <article class="media content-section">
+            <!-- Author Image -->
+            <img class="rounded-circle article-img" src="{{ barbellclass_update.author.profile.image.url }}">
+            <div class="media-body">
+                <!-- Metadata: Author and Date Posted -->
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ barbellclass_update.author }}</a>
+                    <small class="text-muted">{{ barbellclass_update.date_posted|date:"F d, Y" }}</small>
+                </div>
+                <!-- Title with Link to Detail Page -->
+                <h2><a class="article-title" href="{% url 'barbellclass-detail' barbellclass_update.id %}">{{ barbellclass_update.title }}</a></h2>
+                <!-- Content of the Update -->
+                <p class="article-content">{{ barbellclass_update.content }}</p>
             </div>
-            <h2><a class="article-title" href="{% url 'barbellclass-detail' barbellclass_update.id %}">{{ barbellclass_update.title }}</a></h2>
-            <p class="article-content">{{ barbellclass_update.content }}</p>
-        </div>
-    </article>
+        </article>
     {% endfor %}
 {% endblock content %}

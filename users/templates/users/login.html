@@ -1,20 +1,25 @@
 {% extends "barbell_classes/base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} 
 {% block content %}
+
     <div class="content-section">
         <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group"><legend class="border-bottom mb-4">Log In</legend>
+            {% csrf_token %} <!-- CSRF token for security -->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
         </form>
+
+        <!-- Link to registration page -->
         <div class="border-top pt-3">
             <small class="text-muted">
                 Become a Barbell Templar <a class="ml-2" href="{% url 'registration' %}">Join The Movement</a>
             </small>
         </div>
     </div>
+
 {% endblock content %}

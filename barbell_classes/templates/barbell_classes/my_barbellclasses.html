@@ -1,17 +1,26 @@
-<!-- my_barbellclasses.html -->
 {% extends "barbell_classes/base.html" %}
+
 {% block content %}
+    <!-- Title -->
     <h1>My Barbell Classes</h1>
+    
+    <!-- Loop through each enrollment in my_barbellclasses -->
     {% for enrollment in my_barbellclasses %}
+        <!-- Article for each enrolled barbell class -->
         <article class="media content-section">
+            <!-- Author Image -->
             <img class="rounded-circle article-img" src="{{ enrollment.barbell_class.author.profile.image.url }}">
             <div class="media-body">
+                <!-- Metadata: Author and Date Posted -->
                 <div class="article-metadata">
                     <a class="mr-2" href="#">{{ enrollment.barbell_class.author }}</a>
                     <small class="text-muted">{{ enrollment.barbell_class.date_posted|date:"F d, Y" }}</small>
                 </div>
+                <!-- Title with Link to Detail Page -->
                 <h2><a class="article-title" href="{% url 'barbellclass-detail' enrollment.barbell_class.id %}">{{ enrollment.barbell_class.title }}</a></h2>
+                <!-- Description of the Class -->
                 <p class="article-content">{{ enrollment.barbell_class.description }}</p>
+                <!-- Form for Unenrolling -->
                 <form method="post" action="{% url 'barbellclass-unenrol' enrollment.barbell_class.id %}" onsubmit="return confirmUnenrol()">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger btn-sm">Unenrol</button>
@@ -19,6 +28,8 @@
             </div>
         </article>
     {% endfor %}
+    
+    <!-- JavaScript for Confirmation Dialog -->
     <script>
         function confirmUnenrol() {
             return confirm("Are you sure you want to unenrol from this class?");

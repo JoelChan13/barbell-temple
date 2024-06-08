@@ -1,6 +1,10 @@
 {% extends "barbell_classes/base.html" %}
+
 {% block content %}
+    <!-- Page Title -->
     <h1>Barbell Timetable</h1>
+    
+    <!-- Calendar Container -->
     <div id="calendar"></div>
 
     <!-- FullCalendar CSS -->
@@ -9,42 +13,47 @@
     <!-- FullCalendar JS -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
 
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Get the calendar element
             var calendarEl = document.getElementById('calendar');
+            // Initialize FullCalendar
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                // Configuration options
                 initialView: 'dayGridMonth',
-                events: '/api/barbellclasses/',
+                events: '/api/barbellclasses/', // Endpoint for fetching events
                 eventClick: function(info) {
+                    // Redirect to event detail page on click
                     window.location.href = '/barbellclass/' + info.event.id;
                 },
                 eventDidMount: function(info) {
-                    // Hide time
+                    // Customize event display after it is rendered
                     var eventTime = info.el.querySelector('.fc-time');
                     if (eventTime) {
-                        eventTime.style.display = 'none';
+                        eventTime.style.display = 'none'; // Hide time
                     }
-                    // Set cursor to pointer
-                    info.el.style.cursor = 'pointer';
+                    info.el.style.cursor = 'pointer'; // Set cursor to pointer
                 },
                 eventContent: function(arg) {
-                    // Render event content
+                    // Customize event content
                     var eventTitle = document.createElement('div');
                     eventTitle.classList.add('event-title');
                     eventTitle.textContent = arg.event.title;
                     return { domNodes: [eventTitle] };
                 }
             });
-            calendar.render();
+            calendar.render(); // Render the calendar
         });
     </script>
 
+    <!-- CSS Styles -->
     <style>
         .event-title {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            max-width: calc(100% - 20px); /* Adjust as needed */
+            max-width: calc(100% - 20px);
         }
     </style>
 {% endblock content %}

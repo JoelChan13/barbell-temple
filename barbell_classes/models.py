@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 class BarbellClass(models.Model):
     title = models.CharField(max_length=100, help_text="Enter the title of the barbell class (e.g., 'Beginner Strength Training')")
     image = CloudinaryField('image', default='placeholder')
-    date_posted = models.DateTimeField(default=timezone.now)
+    date_posted = models.DateTimeField(default=timezone.now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     class_datetime = models.DateTimeField(default=timezone.now, help_text="Enter the date and time of the class (yyyy/mm/dd hours:minutes)")
     duration = models.TextField(default='', help_text="Enter the duration of the class (e.g., '1 hour')")

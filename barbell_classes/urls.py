@@ -7,6 +7,7 @@ from .views import (
     BarbellClassDeleteView,
     BarbellClassEnrol,
     BarbellClassUnenrol,
+    BarbellClassAuthorView,
     timetable,
     my_barbellclasses,
     barbellclass_list_json,
@@ -23,4 +24,5 @@ urlpatterns = [
     path('barbellclass/<int:pk>/enrol/', BarbellClassEnrol.as_view(), name='barbellclass-enrol'),
     path('barbellclass/<int:pk>/unenrol/', BarbellClassUnenrol.as_view(), name='barbellclass-unenrol'),
     path('api/barbellclasses/', barbellclass_list_json, name='barbellclass-list-json'),
+    path('author/<str:username>/', BarbellClassAuthorView.as_view(), name='barbellclass-author'),
 ]

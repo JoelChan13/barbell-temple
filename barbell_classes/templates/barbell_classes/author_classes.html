@@ -1,6 +1,7 @@
 {% extends "barbell_classes/base.html" %}
 
 {% block content %}
+    <h2>Classes by {{ author.username }}</h2>
     <!-- Loop through each barbell class update -->
     {% for barbellclass_update in barbellclass_updates %}
         <!-- Article for a Barbell Class Update -->

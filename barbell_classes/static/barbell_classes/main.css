@@ -7,7 +7,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgba(255,255,255,.75);
+  color: white;
+}
+
+.h3 {
+  font-size: 1.8rem;
+  color: whitesmoke;
 }
 
 ul {
@@ -49,8 +54,9 @@ ul {
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: rgba(255,255,255,.8);
   text-decoration: none;
+  font-weight: bolder;
 }
 
 .article-content {
@@ -93,8 +99,8 @@ a.article-title:hover {
 
 .col-md-8 {
   -ms-flex: 0 0 66.666667%;
-  flex: 0 0 66.666667%;
-  max-width: 66.666667%;
+  flex: 0 0 100%;
+  max-width: 100%;
   color:rgba(255,255,255,.75);
   background: rgba(0,0,0,.5);
 }
@@ -120,4 +126,23 @@ a.article-title:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ml-2 {
+  color: rgba(255,255,255,.75);
+}
+
+.mr-2 {
+  color: rgba(255,255,255,.75);
+}
+
+.ml-3 {
+  color: rgba(255,255,255,.75);
+  font-weight: bolder;
+}
+
+.navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  background-color: rgba(0,0,0,.3);
 }

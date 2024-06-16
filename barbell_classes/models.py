@@ -5,13 +5,19 @@ from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 class BarbellClass(models.Model):
+    DIFFICULTY_CHOICES = [
+        ('Beginner', 'Beginner'),
+        ('Intermediate', 'Intermediate'),
+        ('Advanced', 'Advanced'),
+    ]
+
     title = models.CharField(max_length=100, help_text="Enter the title of the barbell class (e.g., 'Beginner Strength Training')")
     image = CloudinaryField('image', default='placeholder')
     date_posted = models.DateTimeField(default=timezone.now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     class_datetime = models.DateTimeField(default=timezone.now, help_text="Enter the date and time of the class (yyyy/mm/dd hours:minutes)")
     duration = models.TextField(default='', help_text="Enter the duration of the class (e.g., '1 hour')")
-    difficulty = models.TextField(default='', help_text="Enter the difficulty level of the class (e.g., 'Beginner', 'Intermediate', 'Advanced')")
+    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES, default='Beginner', help_text="Select the difficulty level of the class")
     description = models.TextField(help_text="Provide a detailed description of the class")
     available_spots = models.IntegerField(default=0, help_text="Number of available spots")
 

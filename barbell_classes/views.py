@@ -6,6 +6,7 @@ from .models import BarbellClass, Enrollment
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponse
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 def home(request):
     """View for the home page"""
@@ -40,7 +41,7 @@ class BarbellClassDetailView(DetailView):
 class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     """View for creating a new barbell class"""
     model = BarbellClass
-    fields = ['title', 'class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
+    fields = ['title', 'image', 'class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         """Assign the current user as the author of the class"""
@@ -58,7 +59,7 @@ class BarbellClassCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
 class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """View for updating an existing barbell class"""
     model = BarbellClass
-    fields = ['title', 'class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
+    fields = ['title', 'image','class_datetime', 'duration', 'difficulty', 'description', 'available_spots']
 
     def form_valid(self, form):
         """Assign the current user as the author of the class"""
@@ -68,7 +69,7 @@ class BarbellClassUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
     def test_func(self):
         """Check if the user is the author of the class"""
         barbellclass = self.get_object()
-        return self.request.user == barbellclass.author
+        return self.request.user == barbellclass.author or self.request.user.is_superuser
 
     def handle_no_permission(self):
         """Redirect to home page if the user doesn't have permission"""

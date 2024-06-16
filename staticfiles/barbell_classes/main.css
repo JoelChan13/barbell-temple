@@ -112,7 +112,12 @@ a.article-title:hover {
 }
 
 .fc .fc-daygrid-day.fc-day-today {
-  /* Your custom styles here */
-  background-color: #ffc107; /* Example: Highlight today's date with yellow background */
+  background-color: #ffc107;
   font-weight: 800;
+}
+
+.profilepicture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

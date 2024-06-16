@@ -3,12 +3,8 @@
 {% block content %}
 
 <div class="content-section">
-    <div class="media">
+    <div class="profile-picture">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> <!-- Display user profile image -->
-        <div class="media-body">
-            <h2 class="account-heading">{{ user.username }}</h2> <!-- Display username -->
-            <p class="text-secondary">{{ user.email }}</p> <!-- Display user email -->
-        </div>
     </div>
 
     <!-- Form for updating profile -->

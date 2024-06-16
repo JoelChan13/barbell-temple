@@ -144,7 +144,7 @@ a.article-title:hover {
 .navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
   padding-right: 0;
   padding-left: 0;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.8);
 }
 
 .barbell-class-picture {

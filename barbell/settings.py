@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-joelchan13-barbelltempl-2a6iqe2iaen.ws-eu114.gitpod.io','.herokuapp.com','8000-joelchan13-barbelltempl-2f8u8vd2uin.ws.codeinstitute-ide.net']
 
@@ -154,3 +154,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'barbell_classes-home'
 LOGIN_URL = 'login'
 
+# Cloudinary Configuration
+CLOUDINARY = {
+    'cloud_name': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.getenv('CLOUDINARY_API_KEY'),
+    'api_secret': os.getenv('CLOUDINARY_API_SECRET')
+}
+
+cloudinary.config(
+    cloud_name=CLOUDINARY['cloud_name'],
+    api_key=CLOUDINARY['api_key'],
+    api_secret=CLOUDINARY['api_secret']
+)

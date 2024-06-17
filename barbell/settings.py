@@ -16,6 +16,7 @@ import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
 import os
+
 if os.path.isfile('env.py'):
     import env
 
@@ -155,6 +156,16 @@ LOGIN_REDIRECT_URL = 'barbell_classes-home'
 LOGIN_URL = 'login'
 
 # Cloudinary Configuration
+CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
+
+CLOUDINARY = {
+    'cloud_name': CLOUDINARY_CLOUD_NAME,
+    'api_key': CLOUDINARY_API_KEY,
+    'api_secret': CLOUDINARY_API_SECRET
+}
+
 cloudinary.config(
     cloud_name=CLOUDINARY['cloud_name'],
     api_key=CLOUDINARY['api_key'],

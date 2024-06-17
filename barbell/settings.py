@@ -22,7 +22,7 @@ if os.path.isfile('env.py'):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("django-insecure-*#of^w6nnm+fqi+rn$+ba-0*yspxk7pg=b5@+7jp5u13^gv*p1")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'barbell.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://uskt7tg0jea:7IylE7mGsyRz@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/armed_trek_knelt_458667")
+    'default': dj_database_url.parse("DATABASE_URL")
 }
 
 CSRF_TRUSTED_ORIGINS = [

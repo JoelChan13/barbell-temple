@@ -156,3 +156,17 @@ a.article-title:hover {
   flex: 0 0 100%;
   justify-content: center;
 }
+
+/* Footer */
+.footer {
+  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #cbd5db;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  color: #ffc107; /* Yellow color for links */
+}

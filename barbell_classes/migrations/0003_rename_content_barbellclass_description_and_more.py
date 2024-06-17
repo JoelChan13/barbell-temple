@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='barbellclass',
             name='date',
-            field=models.DateTimeField(default='10-06-2024 00:00:00'),
+            field=models.DateTimeField(default='2024-06-10 00:00:00'),
         ),
         migrations.AddField(
             model_name='barbellclass',

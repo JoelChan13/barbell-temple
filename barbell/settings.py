@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
+import os
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,11 +88,15 @@ WSGI_APPLICATION = 'barbell.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse("postgres://uskt7tg0jea:7IylE7mGsyRz@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/armed_trek_knelt_458667")
 }
 
 CSRF_TRUSTED_ORIGINS = [

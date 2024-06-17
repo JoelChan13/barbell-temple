@@ -281,7 +281,7 @@ The languages used are:
 * [SQLite](https://www.sqlite.org/index.html): SQL database engine used by default as part of Django Framework and used during development.
 * [Cloudinary](https://cloudinary.com/home-102622): to store images and static files.
 * [Heroku](https://id.heroku.com/login): to deploy and run the application.
-* [Bootstrap] (https://getbootstrap.com/): to aid with the website design and formulation.
+* [Bootstrap](https://getbootstrap.com/): to aid with the website design and formulation.
 
 ## **Libraries and other resources**
 

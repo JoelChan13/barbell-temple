@@ -155,12 +155,6 @@ LOGIN_REDIRECT_URL = 'barbell_classes-home'
 LOGIN_URL = 'login'
 
 # Cloudinary Configuration
-CLOUDINARY = {
-    'cloud_name': 'dyvpfbw4j',
-    'api_key': '762527348325295',
-    'api_secret': '6Kr50jMsrmof_30uYAfDE3u0Ivg'
-}
-
 cloudinary.config(
     cloud_name=CLOUDINARY['cloud_name'],
     api_key=CLOUDINARY['api_key'],

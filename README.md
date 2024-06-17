@@ -2,7 +2,7 @@
 
 The purpose of this website is to highlight Barbell Temple, which is a dedicated gym that offers fitness classes tailored for beginners, intermediates, and advanced athletes, focusing on enhancing physical shape and fitness. Guided by seasoned and experienced trainers, these classes provide structured and effective workouts for all fitness levels. The gym’s website features an accessible timetable displaying available classes, their schedules, and remaining spots, facilitating easy enrolment. Each class has a detailed view explaining the class content and target fitness level. After enrolling, users can conveniently track their class schedule in the "My Barbell Classes" section, ensuring a seamless fitness journey.
 
-[Barbell Temple Live Link](https://)
+[Barbell Temple Live Link](https://p4-barbell-temple-06315097a7c8.herokuapp.com/)
 
 ![Responsive Mockup](https://github.com/JoelChan13/barbell-temple/blob/main/media/barbelltemplehomepage.jpg)
 
@@ -46,7 +46,6 @@ Python (+Django Framework), JavaScript, HTML5 and CSS3.
     * [Deployment to Heroku](#deployment-to-heroku)
 * [Credits](#credits)
     * [Code](#code)
-    * [Acknowledgments](#acknowledgments)
 
 # **UX** 
 
@@ -195,6 +194,57 @@ Due to the nature of the background image, the colour choices chosen were kept a
 
 ## **Existing features**
 
+* # Interactive and collapsable navbar:
+
+    * At the top of the website, one can find a responsive nav bar.
+    * Navbar becomes collapsable when accessed from mobile or tablets.
+    * Once an user has logged in, the navbar will update user links specific to authenticated users.
+
+* # Interactive design:
+
+    * Buttons, links and icons respond to mouse hovering across the whole website.
+
+* # Landing Page:
+
+    * Landing page features a title with sub-heading and the list of the barbell classes.
+
+* # Timetable Page:
+
+    * The timetable page features a calendar which updates with every class posted.
+    * the classes display on the date scheduled and have a link to them which directs you to the respective barbell class.
+    * The date of the current day has a feint yellow tint and the date is set in a bolder text to make it slightly more distinguishable, without distracting the user experience.
+
+* # Sign Up Page:
+
+    * The sign-up page features a form prompting the prospective user to enter a unique username and password along with their email, according to specified criteria.
+    * Once Registration is completed, the page redirects users to login page 
+    * Users cannot sign up with a username already in use.
+    * Prompts are displayed when incorrect or missing data is entered.
+
+* # Login Page:
+
+    * The login page features a form prompting the user for their username and password.
+    * Once logged in, users are redirected to the user profile.
+    * If user enters incorrect credentials, user is not logged in and a prompt is displayed.
+
+* # Logout Page:
+
+    * User is signed out of the account and greeted with a message along with a link to log in again.
+
+* # Barbell Class Detail Page:
+
+    * Presents a class image related to the class being held.
+    * Provided details for users to get an idea of what to expect.
+    * Provides the number of spots available and updates the number of spots available every time a user enrols or unenrols.
+    * Features an enrol or unenrol button for users, and an update or delete button for the author of the class.
+
+* # Update Class:
+
+    * Staff User can access update section if he or she is the author of the class.
+    * Details can be changed according to what the author of the class, or the superuser, deems fit.
+    * A prompt is presented when clicking the update button, providing a choice to confirm the change or cancel it.
+
+
 ## **CRUD Operations**
 
 | **Operations** | All users | Auth. Users | Superusers |
@@ -310,12 +360,82 @@ This project contains the following resources:
     * Manual Testing
 
 ## **Testing User Stories**
+* # Website navigation:
 
-* Testing user stories can be found
+    * **First-Time Visitor User Stories**
+
+        * As a **first-time site visitor**, I can **view a landing page** so that I can **get information about the website's purpose.**
+
+        * As a **first-time site visitor**, I can **sign-up** so that I can **create an account to access user features.**
+
+        * As a **first-time site visitor**, I can **find the navigation bar** so that I can **navigate the website.**
+
+        * As a **first-time site visitor**, I can **view barbell classes** so that I can **get information regarding the barbell classes.**
+
+        * As a **first-time site visitor**, I can **view the timetable schedule** so that I can **know when the barbell classes were held and are going to be held.**
+
+    * **Admin User Stories**
+
+        * As an **admin**, I can **access an admin profile** so that I can **create, edit and delete barbell-classes with all relative information for website.**
+
+        * As an **admin**, I can **view user profile information** so that I can **modify any particular user detail or delete users.**
+
+        * As an **admin**, I can **create staff users** so that I can **have multiple users creating barbell classes and users.**
+
+        * As a **first-time site visitor**, I can **find the navigation bar** so that I can **navigate the website.**
+
+        * As a **first-time site visitor**, I can **view barbell classes** so that I can **get information regarding the barbell classes.**
+
+        * As an **admin**, I can **create a barbell classes** so that I can **create new barbell classes for users.**
+
+    * **User Stories**
+
+        * As a **user**, I can **sign-in and out of an account** so that I can **log-in and out of user account.**
+
+        * As a **user**, I can **view barbell classes** so that I can **know when the past and next barbell classes have been held or are due to be held.**
+
+        * As a **user**, I can **view date and details of a barbell class** so that I can **get relevant information about the barbell class.**
+
+        * As a **user**, I can **view confirmation of my action** so that I can **be sure it has processed.**
+
+        * As a **user**, I can **access my profile page** so that I can **see my account profile and edit my details.**
+
+        * As a **user**, I can **enrol for a barbellclass** so that I can **participate in forthcoming barbellclasses.**
+
+        * As a **logged in staff user**, I can **edit my barbell classes** so that I can **modify my barbell class.**
+
 
 ## **Testing Accessibility and Performance**
 
 * Testing for accessibility and performance is managed using the Lighthouse tool in Chrome extension and was done for both Desktop and Mobile, obtaining satisfactory results.
+
+    * For Desktop:
+
+    | Section | Performance | Accessibility | Best Practices | SEO |
+    | --- | --- | --- | --- | --- |
+    | Home | 99 | 92 | 83 | 90 |
+    | Timetable | 93 | 93 | 83 | 90 |
+    | My Barbell Classes | 97 | 90 | 96 | 80 |
+    | New Class | 99 | 100 | 96 | 89 |
+    | Login | 100 | 100 | 96 | 89 |
+    | User Profile | 99 | 83 | 96 | 80 |
+    | Logout | 100 | 100 | 96 | 89 |
+    | Register | 100 | 100 | 96 | 89 |
+    | Class | 99 | 93 | 74 | 90 |
+
+    * For Mobile devices:
+
+    | Section | Performance | Accessibility | Best Practices | SEO |
+    | --- | --- | --- | --- | --- |
+    | Home | 97 | 100 | 96 | 87 |
+    | Timetable | 90 | 95 | 96 | 78 |
+    | My Barbell Classes | 97 | 93 | 96 | 80 |
+    | New Class | 97 | 100 | 96 | 91 |
+    | Login | 97 | 100 | 96 | 91 |
+    | User Profile | 96 | 92 | 96 | 83 |
+    | Logout | 96 | 100 | 96 | 91 |
+    | Register | 97 | 100 | 96 | 91 |
+    | Class | 99 | 93 | 74 | 90 |
 
 ## **Code Validation**
 
@@ -338,12 +458,10 @@ This project contains the following resources:
     * Since [PEP8 Online Service](http://pep8online.com/) has been down, [Python Checker](https://www.pythonchecker.com/) was used to validate Python, with minor errors shown related to the format of the website. 
 
 # **Bugs during development**
-
-## **Fixed bugs and solutions:**
-
 ## **Ongoing bugs:**
 
-*  
+*  Uncaught SyntaxError: Cannot use import statement outside a module (at main.js:6:1) caused by the imported code from FullCalendar.
+* Missing favicon.ico showing in console due to it being imported in the code imported from FullCalendar
 
 # **Development and deployment**
 
@@ -358,5 +476,3 @@ The following websites proved to be both insightful and helpful during developme
 * [W3School](https://www.w3schools.com/)
 * [YouTube](https://www.youtube.com/)
 * [Code Institute](https://learn.codeinstitute.net/) Boilerplate HTML Structure Code was taken from the ci-full-template found in CI GitHub
-
-# **Acknowledgments**

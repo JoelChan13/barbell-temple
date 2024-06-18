@@ -6,7 +6,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 
 /* Global body styles */
 body {
-  background: url('/media/barbelltemplebackground.jpg') no-repeat center center fixed;
+  background: url(https://res.cloudinary.com/dyvpfbw4j/image/upload/v1718675648/barbelltemplebackground_yw5ya9.jpg) no-repeat center center fixed;
   background-size: cover;
   color: gray;
   margin-top: 5rem; /* Adjust top margin as needed */

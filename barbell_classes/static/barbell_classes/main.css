@@ -52,7 +52,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .3);
 }
 
 .site-header .navbar-nav .nav-link {
@@ -189,3 +189,5 @@ a.article-title:hover {
   flex: 0 0 100%;
   justify-content: center;
 }
+
+/* Any other custom styles you have */

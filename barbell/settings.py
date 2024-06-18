@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-joelchan13-barbelltempl-2a6iqe2iaen.ws-eu114.gitpod.io','.herokuapp.com','8000-joelchan13-barbelltempl-2f8u8vd2uin.ws.codeinstitute-ide.net']
 
@@ -159,6 +159,7 @@ LOGIN_URL = 'login'
 CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
 CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
 CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
+
 
 CLOUDINARY = {
     'cloud_name': CLOUDINARY_CLOUD_NAME,

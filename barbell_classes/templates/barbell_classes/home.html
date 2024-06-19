@@ -3,14 +3,13 @@
 {% block content %}
     <!-- Div box with title and purpose -->
     <div class="page-header">
-        <h1>Barbell Temple</h1>
+        <h1>Welcome to Barbell Classes</h1>
         <p>Your ultimate destination for comprehensive gym classes and fitness updates, held outdoors at the Ta'Qali National Park, Malta. Classes are updated weekly to test your limits and get you in your best possible shape and fitness level. Our gym instructors are highly qualified and ready to share their expertise with you to help you achieve your goals using the most innovative methods and techniques.</p>
     </div>
-    
-    <h2>Latest Classes:</h2>
+
     <!-- Loop through each barbell class update -->
     {% for barbellclass_update in barbellclass_updates %}
-        <!-- Article for Barbell Class Update -->
+        <!-- Article for a Barbell Class Update -->
         <article class="media content-section">
             <!-- Author Image -->
             <img class="rounded-circle article-img" src="{{ barbellclass_update.author.profile.image.url }}" alt="user profile picture">

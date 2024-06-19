@@ -1,123 +1,176 @@
 body {
-  background: url('/media/barbelltemplebackground.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: gray;
-  margin-top: 5rem;
-  text-align: center; /* Center all content */
-}
+    background: url("https://res.cloudinary.com/dyvpfbw4j/image/upload/v1718675648/barbelltemplebackground_yw5ya9.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: gray;
+    margin-top: 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+  
+  .h3 {
+    font-size: 1.8rem;
+    color: whitesmoke;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: rgba(0,0,0,.65);
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    color:rgba(255,255,255,.75);
+    background: rgba(0,0,0,.5);
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .list-group-item-light {
+    background-color: #425e71;
+    color: #ffffff;
+  }
+  
+  .article-title {
+    color: rgba(255,255,255,.75);
+  }
+  
+  a.article-title:hover {
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+  
+  .col-md-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    color:rgba(255,255,255,.75);
+    background: rgba(0,0,0,.5);
+  }
+  
+  .text-muted {
+    color: rgba(255,255,255,.75);
+  }
+  
+  .col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    background: rgba(0,0,0,.35);
+    color: white;
+  }
+  
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: #ffc107;
+    font-weight: 800;
+  }
+  
+  .content-section .media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ml-2 {
+    color: rgba(255,255,255,.75);
+  }
+  
+  .mr-2 {
+    color: rgba(255,255,255,.75);
+  }
+  
+  .ml-3 {
+    color: rgba(255,255,255,.75);
+    font-weight: bolder;
+  }
+  
+  .navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    background-color: rgba(0,0,0,.8);
+  }
+  
+  .barbell-class-picture {
+    height: auto;
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    flex: 0 0 45%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-content {
+    flex: 1;
+  }
+  
+  .footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #cbd5db;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: rgba(255,255,255,.75);
-}
-
-ul {
-  margin: 0;
-}
-
-.bg-steel {
-  background-color: rgba(0,0,0,.3);
-}
-
-.site-header .navbar-nav .nav-link {
-  color: #cbd5db;
-}
-
-.site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
-}
-
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
-
-.content-section {
-  color:rgba(255,255,255,.75);
-  background: rgba(0,0,0,.5);
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-.list-group-item-light {
-  background-color: #425e71;
-  color: #ffffff;
-}
-
-.article-title {
-  color: rgba(255,255,255,.75);
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: white;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-}
-
-.col-md-8 {
-  -ms-flex: 0 0 66.666667%;
-  flex: 0 0 66.666667%;
-  max-width: 66.666667%;
-  color:rgba(255,255,255,.75);
-  background: rgba(0,0,0,.5);
-}
-
-.text-muted {
-  color: rgba(255,255,255,.75);
-}
-
-.col-md-12 {
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-  background: rgba(0,0,0,.35);
-  color: white;
-}
-
-.fc .fc-daygrid-day.fc-day-today {
-  background-color: #ffc107;
-  font-weight: 800;
-}
-
-.profilepicture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

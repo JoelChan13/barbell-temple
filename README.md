@@ -461,7 +461,7 @@ This project contains the following resources:
 ## **Ongoing bugs:**
 
 *  Uncaught SyntaxError: Cannot use import statement outside a module (at main.js:6:1) caused by the imported code from FullCalendar.
-* Missing favicon.ico showing in console due to it being imported in the code imported from FullCalendar
+* Missing favicon.ico showing in development, however not in deployed version due to it being imported in the code from FullCalendar template.
 
 # **Development and deployment**
 

@@ -4,7 +4,11 @@
 
 <div class="content-section">
     <div class="profile-picture">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> <!-- Display user profile image -->
+        {% if user.profile.image and user.profile.image.url %}
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        {% else %}
+            <img class="rounded-circle account-img" src="https://res.cloudinary.com/dyvpfbw4j/image/upload/v1718875416/default.jpg">
+        {% endif %}
     </div>
 
     <!-- Form for updating profile -->

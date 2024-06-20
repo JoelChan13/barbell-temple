@@ -476,3 +476,4 @@ The following websites proved to be both insightful and helpful during developme
 * [W3School](https://www.w3schools.com/)
 * [YouTube](https://www.youtube.com/)
 * [Code Institute](https://learn.codeinstitute.net/) Boilerplate HTML Structure Code was taken from the ci-full-template found in CI GitHub
+* Structure for Readme file adopted from [keironchaudhryp4-lingomeets/main/README.md](https://raw.githubusercontent.com/keironchaudhry/p4-lingomeets/main/README.md) and adapted for the purpose of this project in order to ensure that all sections are documented accordingly.

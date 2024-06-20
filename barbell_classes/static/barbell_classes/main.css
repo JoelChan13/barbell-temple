@@ -151,12 +151,12 @@ a.article-title:hover {
 }
 
 .barbell-class-picture {
-  height: 45vh;
-  width: 100vw;
+  height: auto;
+  width: auto;
   margin-right: 20px;
   margin-bottom: 16px;
   display: flex;
-  flex: 0 0 100%;
+  flex: 0 0 45%;
   justify-content: center;
   align-items: center;
 }
@@ -172,4 +172,5 @@ a.article-title:hover {
   text-align: center;
   width: 100%;
   flex-shrink: 0;
+  margin-top: auto;
 }
